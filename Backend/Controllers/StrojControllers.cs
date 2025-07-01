@@ -1,5 +1,6 @@
 ﻿
 using Backend.Data;
+using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
 
@@ -31,5 +32,22 @@ namespace Backend.Controllers
                 return BadRequest(e); //ako se dogodi greska vraca 400 Bad Request i ispisuje poruku greske
             }
             }
+        
+
+[HttpPost]
+        public IActionResult Post(Stroj stroj)
+        {
+            try
+            {
+              
+                _context.Strojevi.Add(stroj);
+                _context.SaveChanges();
+                return StatusCode(StatusCodes.Status201Created, stroj);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
         }
+    }
 }
