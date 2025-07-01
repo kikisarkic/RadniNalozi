@@ -1,6 +1,6 @@
 ﻿namespace Backend.Models
 {
-    public class Strojevi
+    public class Stroj : Entitet
     {
         public string Model { get; set; } = "";
         public string Tip { get; set; } = "";

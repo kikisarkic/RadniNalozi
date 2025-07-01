@@ -94,16 +94,7 @@ values
 ('Sas','Sarkic', '00918800421')
 ;
 
-insert into strojevi (model,Tip)
-values
---1
-('bager', 'JCB'),
---2
-('bager', 'Kubota'),
-('kamion', 'Iveco'),
-('kamion', 'Man'),
-('kamion', 'Tam'),
-('Traktor', 'IMT');
+
 
 insert into racuni (iznos, nacinplacanja, racun)
 values 
