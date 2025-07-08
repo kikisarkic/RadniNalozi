@@ -1,22 +1,20 @@
 ﻿
-ALTER DATABASE db_abb4f9_wp8_admin SET SINGLE_USER WITH
+ALTER DATABASE db_abb4f9_wp8 SET SINGLE_USER WITH
 ROLLBACK IMMEDIATE;
 GO
-ALTER DATABASE db_abb4f9_wp8_admin COLLATE Latin1_General_100_CI_AI_SC_UTF8;
+ALTER DATABASE db_abb4f9_wp8 COLLATE Latin1_General_100_CI_AI_SC_UTF8;
 GO
-ALTER DATABASE db_abb4f9_wp8_admin SET MULTI_USER;
+ALTER DATABASE db_abb4f9_wp8 SET MULTI_USER;
 GO
 
 
-
-
-use master;
-go
-drop database if exists golddigger;
-go 
-create database golddigger collate Croatian_CI_AS;
-go
-use golddigger;
+--use master;
+--go
+--drop database if exists golddigger;
+--go 
+--create database golddigger collate Croatian_CI_AS;
+--go
+--use golddigger;
 
 
 create table potrazitelji(
