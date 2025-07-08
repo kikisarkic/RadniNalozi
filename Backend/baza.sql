@@ -1,4 +1,16 @@
-﻿use master;
+﻿
+ALTER DATABASE db_abb4f9_wp8_admin SET SINGLE_USER WITH
+ROLLBACK IMMEDIATE;
+GO
+ALTER DATABASE db_abb4f9_wp8_admin COLLATE Latin1_General_100_CI_AI_SC_UTF8;
+GO
+ALTER DATABASE db_abb4f9_wp8_admin SET MULTI_USER;
+GO
+
+
+
+
+use master;
 go
 drop database if exists golddigger;
 go 
