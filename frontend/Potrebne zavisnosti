@@ -1,3 +1,5 @@
 u terminalu nankon sto ste zaustavili app (ctrl+c) izvesti:
 
 npm install react-bootstrap bootstrap
+npm install react-router-dom
+npm install axios

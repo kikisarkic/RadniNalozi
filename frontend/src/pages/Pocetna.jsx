@@ -1,8 +1,16 @@
-export default function Pocetna(){
+import { Container } from "react-bootstrap";
 
-    return(
-        <>
-       Dobrodosli!
-       </>
+
+
+export default function Strojevipregled(){
+
+    return( 
+
+   <Container className="app">
+
+   brbrbrb
+
+   </Container> 
+    
     )
 }
