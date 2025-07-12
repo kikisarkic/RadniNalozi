@@ -1,16 +1,17 @@
-import { Container } from "react-bootstrap";
+import slika from '../assets/bager.png'
 
 
 
-export default function Strojevipregled(){
+export default function Pocetna(){
 
     return( 
+  <>
+Dobrodosli GOLD DIGGER <hr/>
 
-   <Container className="app">
+<img src ={slika} />
 
-   brbrbrb
 
-   </Container> 
+   </>
     
     )
 }
