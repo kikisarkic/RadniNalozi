@@ -8,10 +8,24 @@ async function get() {
        return odgovor.data
     })
     // nastala je greska, obradi ju
-    
+
     .catch((e)=>{})
 }
 
-export default {
-    get
+async function dodaj(stroj) {
+    return await HttpService.post('/Stroj',stroj)
+    .then((odgovor)=>{return true})
+    .catch((e)=>{return false})
+}
+
+async function obrisi(stroj) {
+    return await HttpService.delete('/Stroj/'+stroj)
+    .then((odgovor)=>{return true})
+    .catch((e)=>{return false})
+}
+
+export default{
+    get,
+    dodaj,
+    obrisi
 }

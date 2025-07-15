@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router-dom'
 import { RouteNames } from './constants'
 import Pocetna from './pages/Pocetna'
 import StrojeviPregled from './pages/strojevi/StrojeviPregled'
+import StrojeviDodaj from './pages/strojevi/StrojeviDodaj'
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
 
 
         <Route path= {RouteNames.STROJ_PREGLED} element= {<StrojeviPregled />} />
+        <Route path = {RouteNames.STROJ_NOVI} element = {<StrojeviDodaj />}/>
 
         </Routes>
          </Container>

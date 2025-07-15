@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import StrojeviService from "../../services/StrojeviService";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { RouteNames } from "../../constants";
 
 
 export default function StrojeviPregled(){
@@ -20,11 +22,30 @@ export default function StrojeviPregled(){
         dohvatiStrojevi()
     },[])
 
+
+    
+    function obrisi(sifra){
+        if(!confirm('Sigurno obrisati?')){
+            return;
+        }
+        brisanje(sifra)
+    }
+
+    async function brisanje(sifra) {
+        const odgovor = await StrojeviService.obrisi(sifra);
+        dohvatiStrojevi();
+    }
+
+
+
     return(
 
-
         <>
-        Tablicni Pregled Strojeva
+        <Link 
+        
+        className="btn btn-success"
+        to={RouteNames.STROJ_NOVI}> dodavanje novog Stroja</Link>
+        
         
     
      <Table striped bordered hover responsive>
@@ -34,6 +55,7 @@ export default function StrojeviPregled(){
         <th> Model </th>
         <th> Tip </th>
          <th> Registracija</th>
+         <th>Akcija</th>
        </tr>
      </thead>
 
@@ -43,6 +65,13 @@ export default function StrojeviPregled(){
                 <td> {stroj.tip}</td>
                 <td>{stroj.model}</td>
                 <td>{stroj.registracija}</td>
+
+                <td>
+                            <Button variant="danger"
+                            onClick={()=>obrisi(stroj.sifra)}>
+                                Obriši
+                            </Button>                        
+                        </td>
             </tr>        
         ))}
      </tbody>

@@ -88,7 +88,7 @@ namespace Backend.Controllers
 
         [HttpDelete("{sifra:int}")]
 
-        public IActionResult Delete(int sifra, Stroj stroj)
+        public IActionResult Delete(int sifra)
         {
             if (sifra < 1)
             {
@@ -112,8 +112,27 @@ namespace Backend.Controllers
             }
         }
 
+        [HttpGet("{sifra:int}")]
+        public IActionResult Get(int sifra)
+        {
+
+            if ((sifra<=0)
+            {
+                return BadRequest("sifra nije dobra")
+            }
+            try
+            {
+                var stroj = _context.Strojevi.Find(sifra);
+                if (stroj == null)
+                {
+                    return NotFound(new { poruka = "Stroj nije pronadjen" });
+                }
+                return Ok(_context.Strojevi); //vraca sve strojeve iz baze
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e); //ako se dogodi greska vraca 400 Bad Request i ispisuje poruku greske
 
 
-
-    }
+            }
 }
