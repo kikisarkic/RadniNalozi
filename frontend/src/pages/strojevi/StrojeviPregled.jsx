@@ -33,6 +33,7 @@ export default function StrojeviPregled(){
        <tr>
         <th> Model </th>
         <th> Tip </th>
+         <th> Registracija</th>
        </tr>
      </thead>
 
@@ -41,6 +42,7 @@ export default function StrojeviPregled(){
             <tr key={ index}>
                 <td> {stroj.tip}</td>
                 <td>{stroj.model}</td>
+                <td>{stroj.registracija}</td>
             </tr>        
         ))}
      </tbody>

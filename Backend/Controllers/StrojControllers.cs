@@ -70,6 +70,8 @@ namespace Backend.Controllers
 
                 s.Model = stroj.Model;
                 s.Tip = stroj.Tip;
+                s.Registracija = stroj.Registracija;
+
                 _context.Update(s);
                 _context.SaveChanges();
                 return Ok(s);

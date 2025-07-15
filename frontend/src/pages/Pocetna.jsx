@@ -1,4 +1,4 @@
-import slika from '../assets/bager.png'
+import slika from '../assets/visitcard.png'
 
 
 
@@ -6,7 +6,7 @@ export default function Pocetna(){
 
     return( 
   <>
-Dobrodosli GOLD DIGGER <hr/>
+GOLD DIGGER visitcard <hr/>
 
 <img src ={slika} />
 

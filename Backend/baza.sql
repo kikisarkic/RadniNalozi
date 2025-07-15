@@ -36,7 +36,8 @@ telefon varchar (20)
 create table strojevi(
 sifra int not null primary key identity (1,1),
 model varchar (20),
-tip varchar (20)
+tip varchar (20),
+registracija datetime
 );
 
 create table racuni(
@@ -57,72 +58,50 @@ racun int not null references racuni (sifra)
 
 );
 
-insert into potrazitelji(naziv,adresa,OIB,telefon,email)
-values
--- 1
-('AA','Adresa','15658525455','tel','email');
+INSERT INTO strojevi (model, tip, registracija)
+VALUES
+('bager', 'JCB', '2025-03-21'),
+('bager', 'Kubota', '2025-04-21'),
+('bager', 'Kubota', '2025-03-20'),
+('kamion', 'Iveco', '2025-08-20'),
+('kamion', 'Man', '2025-03-21'),
+('kamion', 'Tam', '2025-03-21'),
+('Traktor', 'IMT', '2025-03-21');
+
 
 insert into radnici(ime,prezime,telefon)
 values
---1
 ('Bojan','Sojic', '0957630848'),
---2
 ('Sasa','Sarkic', '0918800421'),
---3
 ('Zlatko', 'Mandic', '0912233564'),
---4
 ('Sasa','Koprivnjak', '0918856234');
 
-
-insert into strojevi (model,Tip)
-values
---1
-('bager', 'JCB'),
---2
-('bager', 'Kubota'),
---3
-('kamion', 'Iveco'),
---4
-('kamion', 'Man'),
---5
-('kamion', 'Tam'),
---6
-('Traktor', 'IMT');
-
-
-
 insert into potrazitelji(naziv,adresa,OIB,telefon,email)
 values
--- 1
-('AA','Adresa','15658525455','tel','email');
+('Teziste Projekt','Ivanovac Duga ulica 53','78998058983','tel','email');
+('Tvins','Tenja Antuna Barca 14','92496504','0989343556','email');
+('Star Line',' Osijek Hrvatske Republike 19a','01008427662','tel','email');
+('Solarsky Solution','Tenja Tome Matica 10','78998058983','tel','email');
+('Fasader Boja','Osijek Vilajska ulica 9','06128727643','tel','email');
+('Martina Slanovic','Osijek Dragonjska 20','51319543363','tel','email');
+('Fasader Boja','Osijek Vilajska ulica 9','06128727643','tel','email');
 
-insert into radnici(ime,prezime,telefon)
-values
---1
-('Bojan','Sojic', '0957630848'),
---2
-('Sas','Sarkic', '00918800421')
-;
-
-
-
-insert into racuni (iznos, nacinplacanja, racun)
+insert into racuni (iznos, nacinplacanja,racun)
 values 
---1
-(1234.33,'gotovina',1);
+(1260,00,'transakcijski',12);
+(2300,00,'transakcijski',18);
+(3000,00, 'transakcijski',13);
+(65000,'transakcijski',15);
+(480,00,'transakcijski',14);
+(1500,00,'transakcijski',16);
+(400,00,'transakcijski',17);
 
-insert into radninalozi(datum,potrazitelj,radnik,stroj,racun)
+insert into radninalozi (datum, potrazitelj, stroj, racun)
 values
-('2025-05-06',1,1,5,1);
-
-
-insert into radninalozi (datum, potrazitelj, radnik, stroj, racun)
-values
---1
-('2025-05-06', 1, 1, 5, 1);
-
-
-
-
-
-
+('2025-02-28', 1, 1, 1, 1);
+('2025-04-22', 1, 1, 1, 1);
+('2025-05-30', 1, 1, 1, 1);
+('2025-07-03', 1, 1, 1, 1);
+('2025-06-02', 1, 1, 1, 1);
+('2025-06-17', 1, 1, 1, 1);
+('2025-05-28', 1, 1, 1, 1);
