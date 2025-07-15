@@ -43,8 +43,7 @@ registracija datetime
 create table racuni(
 sifra int not null primary key identity(1,1),
 iznos decimal (7,2),
-nacinplacanja varchar (10),
-racun int not null references racuni (sifra)
+nacinplacanja varchar (10)
 );
 
 create table radninalozi(
@@ -78,30 +77,31 @@ values
 
 insert into potrazitelji(naziv,adresa,OIB,telefon,email)
 values
-('Teziste Projekt','Ivanovac Duga ulica 53','78998058983','tel','email');
-('Tvins','Tenja Antuna Barca 14','92496504','0989343556','email');
-('Star Line',' Osijek Hrvatske Republike 19a','01008427662','tel','email');
-('Solarsky Solution','Tenja Tome Matica 10','78998058983','tel','email');
-('Fasader Boja','Osijek Vilajska ulica 9','06128727643','tel','email');
-('Martina Slanovic','Osijek Dragonjska 20','51319543363','tel','email');
+('Teziste Projekt','Ivanovac Duga ulica 53','78998058983','tel','email'),
+('Tvins','Tenja Antuna Barca 14','92496504','0989343556','email'),
+('Star Line',' Osijek Hrvatske Republike 19a','01008427662','tel','email'),
+('Solarsky Solution','Tenja Tome Matica 10','78998058983','tel','email'),
+('Fasader Boja','Osijek Vilajska ulica 9','06128727643','tel','email'),
+('Martina Slanovic','Osijek Dragonjska 20','51319543363','tel','email'),
 ('Fasader Boja','Osijek Vilajska ulica 9','06128727643','tel','email');
 
-insert into racuni (iznos, nacinplacanja,racun)
+insert into racuni (iznos, nacinplacanja)
 values 
-(1260,00,'transakcijski',12);
-(2300,00,'transakcijski',18);
-(3000,00, 'transakcijski',13);
-(65000,'transakcijski',15);
-(480,00,'transakcijski',14);
-(1500,00,'transakcijski',16);
-(400,00,'transakcijski',17);
+(1260,'trans'),
+(2300,'trans'),
+(3000, 'trans'),
+(65000,'trans'),
+(480,'trans'),
+(1500,'trans'),
+(400,'trans');
 
-insert into radninalozi (datum, potrazitelj, stroj, racun)
+
+insert into radninalozi (datum, potrazitelj, stroj, racun,radnik)
 values
-('2025-02-28', 1, 1, 1, 1);
-('2025-04-22', 1, 1, 1, 1);
-('2025-05-30', 1, 1, 1, 1);
-('2025-07-03', 1, 1, 1, 1);
-('2025-06-02', 1, 1, 1, 1);
-('2025-06-17', 1, 1, 1, 1);
+('2025-02-28', 1, 1, 1, 1),
+('2025-04-22', 1, 1, 1, 1),
+('2025-05-30', 1, 1, 1, 1),
+('2025-07-03', 1, 1, 1, 1),
+('2025-06-02', 1, 1, 1, 1),
+('2025-06-17', 1, 1, 1, 1),
 ('2025-05-28', 1, 1, 1, 1);
