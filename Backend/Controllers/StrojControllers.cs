@@ -12,11 +12,11 @@ namespace Backend.Controllers
 
     {
 
-       // koristimo dependency injection
+        // koristimo dependency injection
 
-       // 1. definiramo privatno svojstvo
+        // 1. definiramo privatno svojstvo
         private readonly EdunovaContext _context;
-       //  2.konstruktoru postavljamo vrijednost
+        //  2.konstruktoru postavljamo vrijednost
         public StrojController(EdunovaContext context)
         { _context = context; }
 
@@ -101,7 +101,7 @@ namespace Backend.Controllers
                 {
                     return NotFound(new { poruka = "Stroj nije pronadjen" });
                 }
-    
+
                 _context.Strojevi.Remove(s);
                 _context.SaveChanges();
                 return Ok(s);
@@ -116,9 +116,9 @@ namespace Backend.Controllers
         public IActionResult Get(int sifra)
         {
 
-            if ((sifra<=0)
+            if ((sifra <= 0))
             {
-                return BadRequest("sifra nije dobra")
+                return BadRequest("sifra nije dobra");
             }
             try
             {
@@ -135,4 +135,6 @@ namespace Backend.Controllers
 
 
             }
+        }
+    }
 }
