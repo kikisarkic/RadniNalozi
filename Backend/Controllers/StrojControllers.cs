@@ -59,7 +59,7 @@ namespace Backend.Controllers
             }
             try
             {
-                Stroj s =(_context.Strojevi.Find(sifra);
+                Stroj s =_context.Strojevi.Find(sifra);
                 if (s == null)
                 {
                     return NotFound(new { poruka = "Stroj nije pronadjen" });
