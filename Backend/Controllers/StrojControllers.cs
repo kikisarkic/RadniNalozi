@@ -88,7 +88,7 @@ namespace Backend.Controllers
 
         [HttpDelete("{sifra:int}")]
 
-        public IActionResult Delete(int sifra, Stroj stroj)
+        public IActionResult Delete(int sifra)
         {
             if (sifra < 1)
             {

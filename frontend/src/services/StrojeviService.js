@@ -30,8 +30,8 @@ async function dodaj(stroj) {
     .catch((e)=>{return false})
 }
 
-async function obrisi(stroj) {
-    return await HttpService.delete('/Stroj/'+stroj)
+async function obrisi(sifra) {
+    return await HttpService.delete('/Stroj/'+sifra)
     .then((odgovor)=>{return true})
     .catch((e)=>{return false})
 }
