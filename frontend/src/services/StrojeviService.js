@@ -12,17 +12,29 @@ async function get() {
     .catch((e)=>{})
 }
 
+async function getBySifra(sifra) {
+    return await HttpService.get('/Stroj/' + sifra)
+    // sve je u redu dobili smo odgovor
+    .then((odgovor)=>{
+       // console.log(odgovor.data)
+       return odgovor.data
+    })
+    // nastala je greska, obradi ju
+
+    .catch((e)=>{})
+}
+
 async function dodaj(stroj) {
     return await HttpService.post('/Stroj',stroj)
     .then((odgovor)=>{return true})
     .catch((e)=>{return false})
 }
 
-async function obrisi(stroj) 
+async function obrisi(stroj) {
     return await HttpService.delete('/Stroj/'+stroj)
     .then((odgovor)=>{return true})
     .catch((e)=>{return false})
-
+}
     async function promjeni(sifra,stroj) {
     return await HttpService.put('/Stroj/'+sifra,stroj)
     .then((odgovor)=>{return true})
@@ -31,6 +43,7 @@ async function obrisi(stroj)
 
 export default{
     get,
+    getBySifra,
     dodaj,
     obrisi,
     promjeni

@@ -10,8 +10,13 @@ export default function StrojeviPromjena(){
    
     const navigate  = useNavigate();
     const params = useParams();
-    const [strojevi,setStrojevi] = useState({})
+    const [stroj,setStroj] = useState({})
 
+    async function ucitajStroj() {
+        const o = await StrojeviService.getBySifra(params.sifra)
+        o.registracija = moment.utc(o.registracija).format('yyyy-MM-DD')
+        setStroj(o)
+    }
     
 
     async function promjena(sifra,stroj){
@@ -33,6 +38,7 @@ export default function StrojeviPromjena(){
         let podaci = new FormData(e.target); // dohvaćamo sve podatke iz forme
 
         promjena(
+            params.sifra,
             {
             model: podaci.get('model'),
             tip: podaci.get('tip'),
@@ -51,19 +57,19 @@ export default function StrojeviPromjena(){
 
             <Form.Group controlId="model">
                 <Form.Label>Model</Form.Label>
-                <Form.Control type="text" name="model" required />
+                <Form.Control type="text" name="model" required defaultValue={stroj.model}/>
             </Form.Group>
 
             <Form.Group controlId="tip">
                 <Form.Label>Tip</Form.Label>
-                <Form.Control type="text" name="tip" required />
+                <Form.Control type="text" name="tip" required defaultValue={stroj.tip} />
             </Form.Group>
 
         
 
             <Form.Group controlId="registracija">
                 <Form.Label>Registracija</Form.Label>
-                <Form.Control type="date" name="registracija" />
+                <Form.Control type="date" name="registracija" defaultValue={stroj.registracija} />
             </Form.Group>
 
            
@@ -77,7 +83,7 @@ export default function StrojeviPromjena(){
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                        Dodaj stroj
+                        Promjeni stroj
                     </Button>
                 </Col>
             </Row>
