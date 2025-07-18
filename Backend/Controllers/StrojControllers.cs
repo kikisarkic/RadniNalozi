@@ -127,7 +127,7 @@ namespace Backend.Controllers
                 {
                     return NotFound(new { poruka = "Stroj nije pronadjen" });
                 }
-                return Ok(_context.Strojevi); //vraca sve strojeve iz baze
+                return Ok(stroj);
             }
             catch (Exception e)
             {
