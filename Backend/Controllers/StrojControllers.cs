@@ -59,7 +59,7 @@ namespace Backend.Controllers
             }
             try
             {
-                Stroj s = _context.Strojevi.Find(sifra);
+                Stroj s =(_context.Strojevi.Find(sifra);
                 if (s == null)
                 {
                     return NotFound(new { poruka = "Stroj nije pronadjen" });
@@ -88,7 +88,7 @@ namespace Backend.Controllers
 
         [HttpDelete("{sifra:int}")]
 
-        public IActionResult Delete(int sifra)
+        public IActionResult Delete(int sifra, Stroj stroj)
         {
             if (sifra < 1)
             {
@@ -116,7 +116,7 @@ namespace Backend.Controllers
         public IActionResult Get(int sifra)
         {
 
-            if ((sifra <= 0))
+            if (sifra <= 0)
             {
                 return BadRequest("sifra nije dobra");
             }
