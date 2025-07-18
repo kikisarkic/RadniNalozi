@@ -8,6 +8,7 @@ import { RouteNames } from "../../constants";
 export default function StrojeviPregled(){
 
     const[strojevi,setStrojevi] = useState([]);
+    const navigate = use navigate([]);
 
     async function dohvatiStrojevi(){
    const odgovor = await StrojeviService.get()
@@ -67,6 +68,13 @@ export default function StrojeviPregled(){
                 <td>{stroj.registracija}</td>
 
                 <td>
+<Button variant="danger"
+                            onClick={()=>navigate(/strojevi(stroj.sifra)}>
+                                Obriši
+                            </Button> promjena
+                            &nbsp 
+^
+
                             <Button variant="danger"
                             onClick={()=>obrisi(stroj.sifra)}>
                                 Obriši

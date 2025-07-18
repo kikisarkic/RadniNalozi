@@ -22,10 +22,16 @@ async function obrisi(stroj) {
     return await HttpService.delete('/Stroj/'+stroj)
     .then((odgovor)=>{return true})
     .catch((e)=>{return false})
+
+    async function promjeni(sifra,stroj) {
+    return await HttpService.put('/Stroj/'+sifra,stroj)
+    .then((odgovor)=>{return true})
+    .catch((e)=>{return false})
 }
 
 export default{
     get,
     dodaj,
-    obrisi
+    obrisi,
+    promjeni
 }

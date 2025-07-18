@@ -3,14 +3,21 @@ import { Link, useNavigate } from "react-router-dom"
 import { RouteNames } from "../../constants"
 import StrojeviService from "../../services/StrojeviService";
 import moment from "moment";
+import { useEffect } from "react";
 
 
-export default function StrojeviDodaj(){
+export default function StrojeviPromjena(){
    
     const navigate  = useNavigate();
+    useEffect(()=>{
+        const navigate = useNavigate ();
+        async function ucitajStroj {
+            
+        }
+    })
 
-    async function dodaj(stroj){
-        const odgovor = await StrojeviService.dodaj(stroj);
+    async function promjena(sifra,stroj){
+        const odgovor = await StrojeviService.promjeni(sifra,stroj);
         navigate(RouteNames.STROJ_PREGLED);
     }
 
@@ -20,7 +27,7 @@ export default function StrojeviDodaj(){
 
         let podaci = new FormData(e.target); // dohvaćamo sve podatke iz forme
 
-        dodaj(
+        promjena(
             {
             model: podaci.get('model'),
             tip: podaci.get('tip'),
@@ -46,6 +53,8 @@ export default function StrojeviDodaj(){
                 <Form.Label>Tip</Form.Label>
                 <Form.Control type="text" name="tip" required />
             </Form.Group>
+
+        
 
             <Form.Group controlId="registracija">
                 <Form.Label>Registracija</Form.Label>
