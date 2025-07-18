@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import StrojeviService from "../../services/StrojeviService";
 import { Button, Table } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
 
 
 export default function StrojeviPregled(){
 
     const[strojevi,setStrojevi] = useState([]);
-    const navigate = use navigate([]);
+    const navigate= useNavigate();
 
     async function dohvatiStrojevi(){
    const odgovor = await StrojeviService.get()
@@ -69,9 +69,9 @@ export default function StrojeviPregled(){
 
                 <td>
 <Button variant="danger"
-                            onClick={()=>navigate(/strojevi(stroj.sifra)}>
-                                Obriši
-                            </Button> promjena
+                            onClick={()=>navigate(`/strojevi/${strojevi.sifra}`)}>
+                                Promjena
+                            </Button> 
                             &nbsp 
 ^
 

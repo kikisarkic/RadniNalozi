@@ -1,26 +1,31 @@
 import { Button, Col, Form, Row } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { RouteNames } from "../../constants"
 import StrojeviService from "../../services/StrojeviService";
 import moment from "moment";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function StrojeviPromjena(){
    
     const navigate  = useNavigate();
-    useEffect(()=>{
-        const navigate = useNavigate ();
-        async function ucitajStroj {
-            
-        }
-    })
+    const params = useParams();
+    const [strojevi,setStrojevi] = useState({})
+
+    
 
     async function promjena(sifra,stroj){
         const odgovor = await StrojeviService.promjeni(sifra,stroj);
         navigate(RouteNames.STROJ_PREGLED);
     }
 
+    useEffect(()=>{
+        ucitajStroj()
+    },[])
+    async function promjena(sifra,stroj){
+        const odgovor = await StrojeviService.promjeni(sifra,stroj);
+        navigate (RouteNames.STROJ_PREGLED);
+    }
 
     function odradiSubmit(e){ //e je event
         e.preventDefault();
