@@ -116,7 +116,7 @@ namespace Backend.Controllers
         public IActionResult Get(int sifra)
         {
 
-            if ((sifra <= 0))
+            if (sifra <= 0)
             {
                 return BadRequest("sifra nije dobra");
             }
@@ -127,7 +127,7 @@ namespace Backend.Controllers
                 {
                     return NotFound(new { poruka = "Stroj nije pronadjen" });
                 }
-                return Ok(_context.Strojevi); //vraca sve strojeve iz baze
+                return Ok(stroj);
             }
             catch (Exception e)
             {
