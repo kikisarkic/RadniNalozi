@@ -68,11 +68,11 @@ export default function StrojeviPregled(){
                 <td>{stroj.registracija}</td>
 
                 <td>
-<Button variant="danger"
-                            onClick={()=>navigate(`/strojevi/${strojevi.sifra}`)}>
-                                Promjena
+                            <Button>
+                            onClick={()=>navigate(`/strojevi/${strojevi.sifra}`)}
+                            Promjena
                             </Button> 
-                            &nbsp 
+                            &nbsp &nbsp &nbsp &nbsp ;
 ^
 
                             <Button variant="danger"

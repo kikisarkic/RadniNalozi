@@ -18,7 +18,7 @@ async function dodaj(stroj) {
     .catch((e)=>{return false})
 }
 
-async function obrisi(stroj) {
+async function obrisi(stroj) 
     return await HttpService.delete('/Stroj/'+stroj)
     .then((odgovor)=>{return true})
     .catch((e)=>{return false})
