@@ -10,8 +10,8 @@ namespace Backend.Data
             //ovdje se mogu fino postaviti opcije ali ne zasada
         }
         public DbSet<Stroj> Strojevi { get; set; } //zbog ovog ovdije Strojevi se tablica zove u mnozini
-         public  DbSet<Potrazitelj> Potrazitelji { get; set; } //zbog ovog ovdije Entiteti se tablica zove u mnozini
-
+        public  DbSet<Potrazitelj> Potrazitelji { get; set; } //zbog ovog ovdije Entiteti se tablica zove u mnozini
+        public DbSet<Racun> Racuni { get; set; } //zbog ovog ovdije Entiteti se tablica zove u mnozini
         public DbSet<Radnik> Radnici { get; set; }
 
     }
