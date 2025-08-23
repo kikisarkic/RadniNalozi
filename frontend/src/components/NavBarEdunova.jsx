@@ -18,6 +18,8 @@ const navigate=useNavigate()
             
             <Nav.Link href="#link">Početna</Nav.Link>
             <NavDropdown title="Programi" id="basic-nav-dropdown">
+
+              
               <NavDropdown.Item onClick={()=>navigate(RouteNames.STROJ_PREGLED)}>
                 Strojevi
                 </NavDropdown.Item>
@@ -25,6 +27,14 @@ const navigate=useNavigate()
                 <NavDropdown.Item onClick={()=>navigate(RouteNames.POTRAZITELJ_PREGLED)}>
                 Potrazitelji
                 </NavDropdown.Item>
+
+                <NavDropdown.Item onClick={()=>navigate(RouteNames.RADNIK_PREGLED)}>
+                Radnici
+                </NavDropdown.Item>
+
+
+
+
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

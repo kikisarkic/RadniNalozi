@@ -9,7 +9,14 @@ export const RouteNames = {
 
     POTRAZITELJ_PREGLED: '/potrazitelji', //ovo je ruta na frontendu
     POTRAZITELJ_NOVI: '/potrazitelji/dodaj',
-    POTRAZITELJ_PROMJENA: '/potrazitelji/:sifra'
+    POTRAZITELJ_PROMJENA: '/potrazitelji/:sifra',
+
+    RADNIK_PREGLED: '/radnici', //ovo je ruta na frontendu
+    RADNIK_NOVI : '/radnici/dodaj',
+    RADNIK_PROMJENA: '/radnici/:sifra',
+
+
+
 }
 //export const PRODUKCIJA ='https://hristina8-001-site1.jtempurl.com';
 

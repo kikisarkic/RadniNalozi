@@ -2,7 +2,7 @@ import { Button, Col, Form, Row } from "react-bootstrap"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { RouteNames } from "../../constants"
 import PotraziteljService from "../../services/PotraziteljiService";
-import moment from "moment";
+
 import { useEffect, useState } from "react";
 
 
