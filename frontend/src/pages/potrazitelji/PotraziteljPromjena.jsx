@@ -13,20 +13,14 @@ export default function PotraziteljPromjena(){
     const [potrazitelj,setPotrazitelj] = useState({})
 
     async function ucitajPotrazitelj() {
-        const o = await PotraziteljiService.getBySifra(params.sifra)
-        o.registracija = moment.utc(o.registracija).format('yyyy-MM-DD')
-        setStroj(o)
+        const o = await PotraziteljService.getBySifra(params.sifra)
+        setPotrazitelj(o)
     }
     
-
-    async function promjena(sifra,potrazitelj){
-        const odgovor = await PotraziteljService.promjeni(sifra,potrazitelj);
-        navigate(RouteNames.POTRAZITELJ_PREGLED_PREGLED);
-    }
-
     useEffect(()=>{
         ucitajPotrazitelj()
     },[])
+
     async function promjena(sifra,potrazitelj){
         const odgovor = await PotraziteljService.promjeni(sifra,potrazitelj);
         navigate (RouteNames.POTRAZITELJ_PREGLED);
@@ -90,7 +84,7 @@ export default function PotraziteljPromjena(){
 
             <Row>
                 <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
-                    <Link to={RouteNames.POTRAZITELJ_NOVI_PREGLED}
+                    <Link to={RouteNames.POTRAZITELJ_PREGLED}
                     className="btn btn-danger">Odustani</Link>
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>

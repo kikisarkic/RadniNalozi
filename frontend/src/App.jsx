@@ -10,6 +10,7 @@ import StrojeviDodaj from './pages/strojevi/StrojeviDodaj'
 import StrojeviPromjena from './pages/strojevi/StrojeviPromjena'
 import PotraziteljiPregled from './pages/potrazitelji/PotraziteljiPregled'
 import PotraziteljiDodaj from './pages/potrazitelji/PotraziteljDodaj'
+import PotraziteljPromjena from './pages/potrazitelji/PotraziteljPromjena'
 
 
 
@@ -30,6 +31,7 @@ function App() {
 
         <Route path= {RouteNames.POTRAZITELJ_PREGLED} element= {<PotraziteljiPregled />} />
         <Route path= {RouteNames.POTRAZITELJ_NOVI} element= {<PotraziteljiDodaj />} />
+        <Route path= {RouteNames.POTRAZITELJ_PROMJENA} element= {<PotraziteljPromjena />} />
         </Routes>
          </Container>
         <hr />
