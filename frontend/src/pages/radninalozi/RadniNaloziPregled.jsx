@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react"
-import RadniciService from "../../services/RadniciService";
+import RadniNaloziService from "../../services/RadniNaloziServiceService";
 import { Button, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
+import moment from "moment";
 
 
+export default function RadninaloziPregled(){
 
-export default function RadniciPregled(){
-
-    const[radnici,setRadnici ]= useState([]);
+    const[strojevi,setRadninalozi] = useState([]);
     const navigate= useNavigate();
 
-    async function dohvatiRadnici(){
-   const odgovor = await RadniciService.get()
-   setRadnici(odgovor)
+    async function dohvatiRadninalozi(){
+   const odgovor = await RadniNaloziService.get()
+   setRadninalozi(odgovor)
 
     }
 
 
 
-// hook koje ce se izvoditi prilikom dolaska na stranicu radnikevi
+// hook koje ce se izvoditi prilikom dolaska na stranicu Strojevi
     useEffect(()=>{
-        dohvatiRadnici()
+        dohvatiRadninalozi()
     },[])
 
  
@@ -35,8 +35,8 @@ export default function RadniciPregled(){
     }
 
     async function brisanje(sifra) {
-        const odgovor = await RadniciService.obrisi(sifra);
-        dohvatiRadnici();
+        const odgovor = await RadniNaloziService.obrisi(sifra);
+        dohvatiRadninalozi();
     }
 
 
@@ -47,7 +47,7 @@ export default function RadniciPregled(){
         <Link 
         
         className="btn btn-success"
-        to={RouteNames.RADNIK_NOVI}> Dodavanje novog Radnika</Link>
+        to={RouteNames.RADNINALOG_NOVI}> Dodavanje novog RadniNalog</Link>
         
         
     
@@ -55,28 +55,32 @@ export default function RadniciPregled(){
 
      <thead>
        <tr>
-        <th> Ime </th>
-        <th> Prezime </th>
-         <th> Telefon</th>
+        <th> potrazitelj </th>
+        <th> radnik </th>
+        <th> stroj </th>
+        <th> racun </th>
+         
          <th>Akcija</th>
        </tr>
      </thead>
 
      <tbody>
-        {radnici  && radnici.map((radnik,index)=>(
+        {radninalozi  && radninalozi.map((radninalog,index)=>(
             <tr key={ index}>
-                <td> {radnik.ime}</td>
-                <td>{radnik.prezime}</td>
-                <td>{radnik.telefon}</td>
+                <td> {radninalog.potrazitelj}</td>
+                <td> {radninalog.radnik}</td>
+                <td> {radninalog.stroj}</td>
+                <td> {radninalog.racun}</td>
+              
                 <td>
                             <Button
-                            onClick={()=>navigate(`/radnici/${radnik.sifra}`)}
+                            onClick={()=>navigate(`/radninalozi/${radninalog.sifra}`)}
                             >Promjena
                             </Button> 
                             &nbsp; &nbsp; &nbsp; &nbsp;
 
                             <Button variant="danger"
-                            onClick={()=>obrisi(radnik.sifra)}>
+                            onClick={()=>obrisi(radninaloglog.sifra)}>
                                 Obriši
                             </Button>                        
                         </td>

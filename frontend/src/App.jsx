@@ -41,6 +41,17 @@ function App() {
         <Route path= {RouteNames.RADNIK_NOVI} element= {<RadniciDodaj />} />
         <Route path= {RouteNames.RADNIK_PROMJENA} element= {<RadniciPromjena />} />
 
+        <Route path= {RouteNames.RACUN_PREGLED} element= {<RacuniPregled />} />
+        <Route path= {RouteNames.RACUN_NOVI} element= {<RacuniDodaj />} />
+        <Route path= {RouteNames.RACUN_PROMJENA} element= {<RacuniPromjena />} />
+
+
+        <Route path= {RouteNames.RADNINALOG_PREGLED} element= {<RadniNalogPregled />} />
+        <Route path= {RouteNames.RADNINALOG_NOVI} element= {<RadniNalogDodaj />} />
+        <Route path= {RouteNames.RADNINALOG_PROMJENA} element= {<RadniNalogPromjena />} />
+
+
+
 
         </Routes>
          </Container>

@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react"
-import RadniciService from "../../services/RadniciService";
+import RacuniService from "../../services/RacuniService";
 import { Button, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
+import moment from "moment";
 
 
+export default function RacuniPregled(){
 
-export default function RadniciPregled(){
-
-    const[radnici,setRadnici ]= useState([]);
+    const[racuni,setRacuni] = useState([]);
     const navigate= useNavigate();
 
-    async function dohvatiRadnici(){
-   const odgovor = await RadniciService.get()
-   setRadnici(odgovor)
+    async function dohvatiRacuni(){
+   const odgovor = await RacuniService.get()
+   setRacuni(odgovor)
 
     }
 
 
 
-// hook koje ce se izvoditi prilikom dolaska na stranicu radnikevi
+// hook koje ce se izvoditi prilikom dolaska na stranicu Strojevi
     useEffect(()=>{
-        dohvatiRadnici()
+        dohvatiRacuni()
     },[])
 
  
@@ -35,8 +35,8 @@ export default function RadniciPregled(){
     }
 
     async function brisanje(sifra) {
-        const odgovor = await RadniciService.obrisi(sifra);
-        dohvatiRadnici();
+        const odgovor = await RacuniService.obrisi(sifra);
+        dohvatiRacuni();
     }
 
 
@@ -47,7 +47,7 @@ export default function RadniciPregled(){
         <Link 
         
         className="btn btn-success"
-        to={RouteNames.RADNIK_NOVI}> Dodavanje novog Radnika</Link>
+        to={RouteNames.RACUN_NOVI}> Dodavanje novog Racuna</Link>
         
         
     
@@ -55,28 +55,27 @@ export default function RadniciPregled(){
 
      <thead>
        <tr>
-        <th> Ime </th>
-        <th> Prezime </th>
-         <th> Telefon</th>
+        <th> Iznos </th>
+        <th> NacinPlacanja </th>
          <th>Akcija</th>
        </tr>
      </thead>
 
      <tbody>
-        {radnici  && radnici.map((radnik,index)=>(
+        {racuni && racuni.map((racun,index)=>(
             <tr key={ index}>
-                <td> {radnik.ime}</td>
-                <td>{radnik.prezime}</td>
-                <td>{radnik.telefon}</td>
+                <td> {racun.iznos}</td>
+                <td>{racun.nacinplacanja}</td>
+
                 <td>
                             <Button
-                            onClick={()=>navigate(`/radnici/${radnik.sifra}`)}
+                            onClick={()=>navigate(`/racuni/${racun.sifra}`)}
                             >Promjena
                             </Button> 
                             &nbsp; &nbsp; &nbsp; &nbsp;
 
                             <Button variant="danger"
-                            onClick={()=>obrisi(radnik.sifra)}>
+                            onClick={()=>obrisi(racun.sifra)}>
                                 Obriši
                             </Button>                        
                         </td>
