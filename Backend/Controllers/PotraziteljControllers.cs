@@ -1,4 +1,5 @@
 ﻿
+using AutoMapper;
 using Backend.Data;
 using Backend.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -7,17 +8,8 @@ namespace Backend.Controllers
 {
     [ApiController]
     [Route("api/v1/[controller]")]
-    public class PotraziteljController : ControllerBase
-
+    public class PotraziteljController(EdunovaContext context, IMapper mapper) : GoldDiggerController(context, mapper)
     {
-
-        // koristimo dependency injection
-
-        // 1. definiramo privatno svojstvo
-        private readonly EdunovaContext _context;
-        //  2.konstruktoru postavljamo vrijednost
-        public PotraziteljController(EdunovaContext context)
-        { _context = context; }
 
         [HttpGet]
         public IActionResult Get()

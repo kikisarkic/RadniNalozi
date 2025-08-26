@@ -96,7 +96,7 @@ values
 (400,'trans');
 
 
-insert into radninalozi (datum, potrazitelj, stroj, racun,radnik)
+insert into radninalozi (datum, potrazitelj, stroj, racun, radnik)
 values
 ('2025-02-28', 1, 1, 1, 1),
 ('2025-04-22', 1, 1, 1, 1),

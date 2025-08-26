@@ -1,4 +1,5 @@
 using Backend.Data;
+using Backend.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 
@@ -25,6 +26,11 @@ builder.Services.AddCors(o =>
     {
         p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
     });
+});
+
+// automapper
+builder.Services.AddAutoMapper(cfg => {
+    cfg.AddProfile<EdunovaMappingProfile>();
 });
 
 var app = builder.Build();
