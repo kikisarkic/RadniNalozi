@@ -32,6 +32,13 @@ const navigate=useNavigate()
                 Radnici
                 </NavDropdown.Item>
 
+                <NavDropdown.Item onClick={()=>navigate(RouteNames.RACUN_PREGLED)}>
+                Racuni
+                </NavDropdown.Item>
+
+                <NavDropdown.Item onClick={()=>navigate(RouteNames.RADNINALOG_PREGLED)}>
+                Radni nalozi
+                </NavDropdown.Item>
 
 
 

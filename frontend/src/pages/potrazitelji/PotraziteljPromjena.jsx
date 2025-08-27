@@ -2,7 +2,6 @@ import { Button, Col, Form, Row } from "react-bootstrap"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { RouteNames } from "../../constants"
 import PotraziteljService from "../../services/PotraziteljiService";
-
 import { useEffect, useState } from "react";
 
 
@@ -62,7 +61,7 @@ export default function PotraziteljPromjena(){
             </Form.Group>
 
          <Form.Group controlId="oib">
-                <Form.Label>POIB</Form.Label>
+                <Form.Label>OIB</Form.Label>
                 <Form.Control type="text" name="oib" required defaultValue={potrazitelj.oib}/>
             </Form.Group>
 

@@ -13,8 +13,13 @@ import PotraziteljiDodaj from './pages/potrazitelji/PotraziteljDodaj'
 import PotraziteljPromjena from './pages/potrazitelji/PotraziteljPromjena'
 import RadniciPregled from './pages/radnik/RadniciPregled'
 import RadniciDodaj from './pages/radnik/RadniciDodaj'
-import RadniciPromjena from './pages/radnik/RadniciPromjena'
-
+import RadniciPromjena from './pages/radnik/RadniciPromjena'   
+import RacuniPregled from './pages/racuni/RacuniPregled'
+import RacuniDodaj from './pages/racuni/RacuniDodaj'    
+import RacuniPromjena from './pages/racuni/RacuniPromjena'
+import RadniNaloziPregled from './pages/radninalozi/RadniNaloziPregled'
+import RadniNaloziDodaj from './pages/radninalozi/RadniNaloziDodaj'
+import RadniNaloziPromjena from './pages/radninalozi/RadniNaloziPromjena'
 
 
 function App() {
@@ -46,9 +51,9 @@ function App() {
         <Route path= {RouteNames.RACUN_PROMJENA} element= {<RacuniPromjena />} />
 
 
-        <Route path= {RouteNames.RADNINALOG_PREGLED} element= {<RadniNalogPregled />} />
-        <Route path= {RouteNames.RADNINALOG_NOVI} element= {<RadniNalogDodaj />} />
-        <Route path= {RouteNames.RADNINALOG_PROMJENA} element= {<RadniNalogPromjena />} />
+        <Route path= {RouteNames.RADNINALOG_PREGLED} element= {<RadniNaloziPregled />} />
+        <Route path= {RouteNames.RADNINALOG_NOVI} element= {<RadniNaloziDodaj />} />
+        <Route path= {RouteNames.RADNINALOG_PROMJENA} element= {<RadniNaloziPromjena />} />
 
 
 

@@ -3,7 +3,7 @@ import RacuniService from "../../services/RacuniService";
 import { Button, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
-import moment from "moment";
+
 
 
 export default function RacuniPregled(){
@@ -65,7 +65,7 @@ export default function RacuniPregled(){
         {racuni && racuni.map((racun,index)=>(
             <tr key={ index}>
                 <td> {racun.iznos}</td>
-                <td>{racun.nacinplacanja}</td>
+                <td>{racun.nacinPlacanja}</td>
 
                 <td>
                             <Button

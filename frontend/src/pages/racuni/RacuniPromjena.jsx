@@ -1,8 +1,7 @@
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { RouteNames } from "../../constants"
-import RacuniService from "../../services/RacuniServiceService";
-import moment from "moment";
+import RacuniService from "../../services/RacuniService";
 import { useEffect, useState } from "react";
 
 
@@ -41,7 +40,7 @@ export default function RacuniPromjena(){
             params.sifra,
             {
             iznos: podaci.get('iznos'),
-            nacinplacanja: podaci.get('nacinplacanja'),
+            nacinPlacanja: podaci.get('nacinPlacanja'),
           
             }
         )
@@ -60,9 +59,9 @@ export default function RacuniPromjena(){
                 <Form.Control type="text" name="iznos" required defaultValue={racun.iznos}/>
             </Form.Group>
 
-            <Form.Group controlId="nacinplacanja">
-                <Form.Label>NacinPlacanja</Form.Label>
-                <Form.Control type="text" name="nacinplacanja" required defaultValue={racun.nacinplacanja} />
+            <Form.Group controlId="nacinPlacanja">
+                <Form.Label>Nacin placanja</Form.Label>
+                <Form.Control type="text" name="nacinPlacanja" required defaultValue={racun.nacinPlacanja} />
             </Form.Group>
 
     

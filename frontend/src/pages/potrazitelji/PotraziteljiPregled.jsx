@@ -3,7 +3,7 @@ import PotraziteljiService from "../../services/PotraziteljiService";
 import { Button, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
-import moment from "moment";
+
 
 
 export default function PotraziteljiPregled(){

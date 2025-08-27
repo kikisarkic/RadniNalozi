@@ -2,7 +2,7 @@ import { Button, Col, Form, Row } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { RouteNames } from "../../constants"
 import RacuniService from "../../services/RacuniService";
-import moment from "moment";
+
 
 
 export default function RacuniDodaj(){
@@ -55,7 +55,7 @@ export default function RacuniDodaj(){
 
             <Row>
                 <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
-                    <Link to={RouteNames.RACUN_PREGLED_PREGLED}
+                    <Link to={RouteNames.RACUN_PREGLED}
                     className="btn btn-danger">Odustani</Link>
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>

@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
-import RadniNaloziService from "../../services/RadniNaloziServiceService";
+import RadniNaloziService from "../../services/RadniNaloziService";
 import { Button, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
-import moment from "moment";
+
+
 
 
 export default function RadninaloziPregled(){
 
-    const[strojevi,setRadninalozi] = useState([]);
+    const[radninalozi,setRadninalozi] = useState([]);
     const navigate= useNavigate();
 
     async function dohvatiRadninalozi(){
@@ -47,7 +48,7 @@ export default function RadninaloziPregled(){
         <Link 
         
         className="btn btn-success"
-        to={RouteNames.RADNINALOG_NOVI}> Dodavanje novog RadniNalog</Link>
+        to={RouteNames.RADNINALOG_NOVI}> Dodavanje novog Radnognaloga</Link>
         
         
     
@@ -67,10 +68,10 @@ export default function RadninaloziPregled(){
      <tbody>
         {radninalozi  && radninalozi.map((radninalog,index)=>(
             <tr key={ index}>
-                <td> {radninalog.potrazitelj}</td>
-                <td> {radninalog.radnik}</td>
-                <td> {radninalog.stroj}</td>
-                <td> {radninalog.racun}</td>
+                <td> {radninalog.potraziteljNaziv}</td>
+                <td> {radninalog.radnikIme}</td>
+                <td> {radninalog.strojNaziv}</td>
+                <td> {radninalog.racunBroj}</td>
               
                 <td>
                             <Button

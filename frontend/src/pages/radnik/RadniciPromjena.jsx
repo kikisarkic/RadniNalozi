@@ -76,12 +76,12 @@ export default function RadniciPromjena(){
 
             <Row>
                 <Col xs={6} sm={6} md={3} lg={2} xl={6} xxl={6}>
-                    <Link to={RouteNames.STROJ_PREGLED}
+                    <Link to={RouteNames.RADNIK_PREGLED}
                     className="btn btn-danger">Odustani</Link>
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                        Promjeni stroj
+                        Promjeni radnika
                     </Button>
                 </Col>
             </Row>

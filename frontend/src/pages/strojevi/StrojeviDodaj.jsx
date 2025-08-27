@@ -6,7 +6,7 @@ import moment from "moment";
 
 
 export default function StrojeviDodaj(){
-   
+
     const navigate  = useNavigate();
 
     async function dodaj(stroj){
@@ -49,7 +49,7 @@ export default function StrojeviDodaj(){
 
             <Form.Group controlId="registracija">
                 <Form.Label>Registracija</Form.Label>
-                <Form.Control type="date" name="registracija" />
+                <Form.Control type="date" name="registracija" required/>
             </Form.Group>
 
            

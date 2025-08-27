@@ -65,12 +65,9 @@ export default function StrojeviPregled(){
      <tbody>
         {strojevi  && strojevi.map((stroj,index)=>(
             <tr key={ index}>
-                <td> {stroj.tip}</td>
-                <td>{stroj.model}</td>
-                <td>{
-                     moment.utc(stroj.registracija).format('DD. MM. YYYY.')
-                    }</td>
-
+                <td> {stroj.model}</td>
+                <td>{stroj.tip}</td>
+                <td>{moment.utc(stroj.registracija).format('DD. MM. YYYY.')}</td>
                 <td>
                             <Button
                             onClick={()=>navigate(`/strojevi/${stroj.sifra}`)}

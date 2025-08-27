@@ -1,16 +1,51 @@
 import { Button, Col, Form, Row } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { RouteNames } from "../../constants"
-import RadniNaloziService from "../../services/RadniNaloziServiceService";
-import moment from "moment";
+import RadniNaloziService from "../../services/RadniNaloziService";
+import PotraziteljiService from '../../services/PotraziteljiService';
+import { useEffect, useState } from "react";
+
 
 
 export default function RadniNaloziDodaj(){
+
+
+      const [potrazitelji, setPotrazitelji] = useState([]);
+  const [potraziteljSifra, setPotraziteljSifra] = useState(0);
+
+
+  async function dohvatiPotrazitelje(){
+    const odgovor = await PotraziteljiService.get();
+    setPotrazitelji(odgovor);
+    setPotraziteljSifra(odgovor[0].sifra);
+  }
+
+
+  
+    useEffect(()=>{
+    dohvatiPotrazitelje();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
    
+
+
+
+    async function dohvatiPotrazitelje(){
+    const odgovor = await PotraziteljiService.get();
+    setPotrazitelji(odgovor);
+    setPotraziteljSifra(odgovor[0].sifra);
+  }
+
+    useEffect(()=>{
+    dohvatiPotrazitelje();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
+
+  
     const navigate  = useNavigate();
 
-    async function dodaj(radnonalog){
-        const odgovor = await RadniNaloziService.dodaj(radninalog);
+    async function dodaj(radninalozi){
+        const odgovor = await RadniNaloziService.dodaj(radninalozi);
         navigate(RouteNames.RADNINALOG_PREGLED);
     }
 
@@ -39,27 +74,58 @@ export default function RadniNaloziDodaj(){
         Dodavanje radnognaloga
         <Form onSubmit={odradiSubmit}>
 
-            <Form.Group controlId="potrazitelj">
-                <Form.Label>Potrazitelj</Form.Label>
-                <Form.Control type="text" name="potrazitelj" required />
-            </Form.Group>
+            <Form.Group className='mb-3' controlId='potrazitelj'>
+            <Form.Label>Potrazitelj</Form.Label>
+            <Form.Select 
+            onChange={(e)=>{setPotraziteljSifra(e.target.value)}}
+            >
+            {potrazitelji && potrazitelji.map((s,index)=>(
+              <option key={index} value={s.sifra}>
+                {s.naziv}
+              </option>
+            ))}
+            </Form.Select>
+          </Form.Group>
 
-            <Form.Group controlId="radnik">
-                <Form.Label>Radnik</Form.Label>
-                <Form.Control type="text" name="radnik" required />
-            </Form.Group>
+             <Form.Group className='mb-3' controlId='radnik'>
+            <Form.Label>Radnik</Form.Label>
+            <Form.Select 
+            onChange={(e)=>{setRadnikSifra(e.target.value)}}
+            >
+            {radnici && radnici.map((s,index)=>(
+              <option key={index} value={s.sifra}>
+                {s.naziv}
+              </option>
+            ))}
+            </Form.Select>
+          </Form.Group>
 
-             <Form.Group controlId="stroj">
-                <Form.Label>Stroj</Form.Label>
-                <Form.Control type="text" name="stroj" required />
-            </Form.Group>
 
-            <Form.Group controlId="racun">
-                <Form.Label>Racun</Form.Label>
-                <Form.Control type="text" name="racun" required />
-            </Form.Group>
+              <Form.Group className='mb-3' controlId='stroj'>
+            <Form.Label>Stroj</Form.Label>
+            <Form.Select 
+            onChange={(e)=>{setRadnikSifra(e.target.value)}}
+            >
+            {strojevi && strojevi.map((s,index)=>(
+              <option key={index} value={s.sifra}>
+                {s.naziv}
+              </option>
+            ))}
+            </Form.Select>
+          </Form.Group>
 
-            
+              <Form.Group className='mb-3' controlId='racun'>
+            <Form.Label>Radnik</Form.Label>
+            <Form.Select 
+            onChange={(e)=>{setRadnikSifra(e.target.value)}}
+            >
+            {racuni && racuni.map((s,index)=>(
+              <option key={index} value={s.sifra}>
+                {s.naziv}
+              </option>
+            ))}
+            </Form.Select>
+          </Form.Group>
 
            
 

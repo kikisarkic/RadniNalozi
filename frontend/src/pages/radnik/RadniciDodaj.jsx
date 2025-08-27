@@ -49,7 +49,7 @@ export default function RadniciDodaj(){
 
             <Form.Group controlId="telefon">
                 <Form.Label>Telefon</Form.Label>
-                <Form.Control type="text" name="telefon" equired/>
+                <Form.Control type="text" name="telefon" required/>
             </Form.Group>
 
            
