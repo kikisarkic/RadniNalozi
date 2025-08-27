@@ -82,7 +82,33 @@ namespace Backend.Controllers
             }
         }
 
-    
+
+
+        [HttpDelete("{sifra:int}")]
+        public IActionResult Delete(int sifra)
+        {
+            if (sifra < 1)
+            {
+                return BadRequest(new { poruka = "Sifra mora biti veca od 0" });
+            }
+            try
+            {
+                var s = _context.RadniNalozi.Find(sifra);
+                if (s == null)
+                {
+                    return NotFound(new { poruka = "Radni nalov nije pronadjen" });
+                }
+
+                _context.RadniNalozi.Remove(s);
+                _context.SaveChanges();
+                return Ok(new {poruka="Uspjesno obrisano" });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+        }
+
 
     }
 }

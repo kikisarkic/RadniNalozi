@@ -81,7 +81,7 @@ export default function RadninaloziPregled(){
                             &nbsp; &nbsp; &nbsp; &nbsp;
 
                             <Button variant="danger"
-                            onClick={()=>obrisi(radninaloglog.sifra)}>
+                            onClick={()=>obrisi(radninalog.sifra)}>
                                 Obriši
                             </Button>                        
                         </td>
