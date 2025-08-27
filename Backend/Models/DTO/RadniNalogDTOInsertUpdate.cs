@@ -1,6 +1,6 @@
 ﻿namespace Backend.Models.DTO
 {
-    public record RadniNaloziDTOInsertUpdate(
+    public record RadniNalogDTOInsertUpdate(
         DateTime? Datum, 
         int PotraziteljSifra, 
         int RadnikSifra, 

@@ -30,6 +30,20 @@ namespace Backend.Mapping
                      opt => opt.MapFrom(src => src.Racun.Iznos)
                  );
 
+            CreateMap<RadniNalog, RadniNalogDTOInsertUpdate>()
+                .ForCtorParam(
+                    "PotraziteljSifra",
+                    opt => opt.MapFrom(src => src.Potrazitelj.Sifra)
+                ).ForCtorParam(
+                    "RadnikSifra",
+                    opt => opt.MapFrom(src => src.Radnik.Sifra)
+                ).ForCtorParam(
+                    "StrojSifra",
+                    opt => opt.MapFrom(src => src.Stroj.Sifra)
+                ).ForCtorParam(
+                    "RacunSifra",
+                    opt => opt.MapFrom(src => src.Racun.Sifra)
+                );
 
         }
     }
