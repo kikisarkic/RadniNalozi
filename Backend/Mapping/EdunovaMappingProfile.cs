@@ -15,7 +15,7 @@ namespace Backend.Mapping
         {
 
 
-            CreateMap<RadniNalog, RadniNalogReadDto>()
+            CreateMap<RadniNalog, RadniNalogDTORead>()
                  .ForCtorParam(
                      "PotraziteljNaziv",
                      opt => opt.MapFrom(src => src.Potrazitelj.Naziv)

@@ -1,6 +1,6 @@
 ﻿namespace Backend.Models.DTO
 {
-    public record RadniNalogReadDto(
+    public record RadniNalogDTORead(
         int Sifra, 
         DateTime? Datum, 
         string PotraziteljNaziv, 

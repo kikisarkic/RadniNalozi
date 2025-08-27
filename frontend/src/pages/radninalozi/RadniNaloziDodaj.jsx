@@ -4,7 +4,10 @@ import { RouteNames } from "../../constants"
 import RadniNaloziService from "../../services/RadniNaloziService";
 import PotraziteljiService from '../../services/PotraziteljiService';
 import { useEffect, useState } from "react";
-
+import StrojeviService from "../../services/StrojeviService";
+import RacuniService from "../../services/RacuniService";
+import RadniciService from "../../services/RadniciService";
+import moment from "moment";
 
 
 export default function RadniNaloziDodaj(){
@@ -13,35 +16,51 @@ export default function RadniNaloziDodaj(){
       const [potrazitelji, setPotrazitelji] = useState([]);
   const [potraziteljSifra, setPotraziteljSifra] = useState(0);
 
-
   async function dohvatiPotrazitelje(){
     const odgovor = await PotraziteljiService.get();
     setPotrazitelji(odgovor);
     setPotraziteljSifra(odgovor[0].sifra);
   }
-
-
-  
     useEffect(()=>{
     dohvatiPotrazitelje();
+    dohvatiRadnike();
+    dohvatiStrojeve();
+    dohvatiRacune();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
    
 
 
+ const [radnici, setRadnici] = useState([]);
+  const [radnikSifra, setRadnikSifra] = useState(0);
 
-    async function dohvatiPotrazitelje(){
-    const odgovor = await PotraziteljiService.get();
-    setPotrazitelji(odgovor);
-    setPotraziteljSifra(odgovor[0].sifra);
+    async function dohvatiRadnike(){
+    const odgovor = await RadniciService.get();
+    setRadnici(odgovor);
+    setRadnikSifra(odgovor[0].sifra);
   }
 
-    useEffect(()=>{
-    dohvatiPotrazitelje();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[]);
+      const [strojevi, setStrojevi] = useState([]);
+  const [strojSifra, setStrojSifra] = useState(0);
 
-  
+  async function dohvatiStrojeve(){
+    const odgovor = await StrojeviService.get();
+    setStrojevi(odgovor);
+    setStrojSifra(odgovor[0].sifra);
+  }
+
+
+
+  const [racuni, setRacuni] = useState([]);
+  const [racunSifra, setRacunSifra] = useState(0);
+
+  async function dohvatiRacune(){
+    const odgovor = await RacuniService.get();
+    setRacuni(odgovor);
+    setRacunSifra(odgovor[0].sifra);
+  }
+
+
     const navigate  = useNavigate();
 
     async function dodaj(radninalozi){
@@ -57,10 +76,11 @@ export default function RadniNaloziDodaj(){
 
         dodaj(
             {
-            potrazitelj: podaci.get('potrazitelj'),
-            radnik: podaci.get('radnik'),
-            stroj: podaci.get('stroj'),
-            racun: podaci.get('racun'),
+            potraziteljSifra: parseInt(potraziteljSifra),
+            radnikSifra:  parseInt(radnikSifra),
+            strojSifra:  parseInt(strojSifra),
+            racunSifra:  parseInt(racunSifra),
+            datum: moment.utc(podaci.get('datum')),
           
             }
         )
@@ -94,7 +114,7 @@ export default function RadniNaloziDodaj(){
             >
             {radnici && radnici.map((s,index)=>(
               <option key={index} value={s.sifra}>
-                {s.naziv}
+                {s.ime} {s.prezime}
               </option>
             ))}
             </Form.Select>
@@ -104,30 +124,36 @@ export default function RadniNaloziDodaj(){
               <Form.Group className='mb-3' controlId='stroj'>
             <Form.Label>Stroj</Form.Label>
             <Form.Select 
-            onChange={(e)=>{setRadnikSifra(e.target.value)}}
+            onChange={(e)=>{setStrojSifra(e.target.value)}}
             >
             {strojevi && strojevi.map((s,index)=>(
               <option key={index} value={s.sifra}>
-                {s.naziv}
+                {s.tip} {s.model}
               </option>
             ))}
             </Form.Select>
           </Form.Group>
 
+
+
+
               <Form.Group className='mb-3' controlId='racun'>
-            <Form.Label>Radnik</Form.Label>
+            <Form.Label>Racun</Form.Label>
             <Form.Select 
-            onChange={(e)=>{setRadnikSifra(e.target.value)}}
+            onChange={(e)=>{setRacunSifra(e.target.value)}}
             >
             {racuni && racuni.map((s,index)=>(
               <option key={index} value={s.sifra}>
-                {s.naziv}
+                {s.iznos}
               </option>
             ))}
             </Form.Select>
           </Form.Group>
 
-           
+            <Form.Group controlId="datum">
+                <Form.Label>Datum </Form.Label>
+                <Form.Control type="date" name="datum" />
+            </Form.Group>
 
             <hr style={{marginTop: '50px'}} />
 
