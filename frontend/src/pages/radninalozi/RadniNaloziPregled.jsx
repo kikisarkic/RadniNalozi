@@ -3,7 +3,7 @@ import RadniNaloziService from "../../services/RadniNaloziService";
 import { Button, Table } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
-
+import moment from "moment";
 
 
 
@@ -57,6 +57,7 @@ export default function RadninaloziPregled(){
      <thead>
        <tr>
         <th> potrazitelj </th>
+        <th> datum </th>
         <th> radnik </th>
         <th> stroj </th>
         <th> racun </th>
@@ -69,6 +70,7 @@ export default function RadninaloziPregled(){
         {radninalozi  && radninalozi.map((radninalog,index)=>(
             <tr key={ index}>
                 <td> {radninalog.potraziteljNaziv}</td>
+                <td> {moment.utc(radninalog.datum).format('DD. MM. YYYY.')}</td>
                 <td> {radninalog.radnikIme}</td>
                 <td> {radninalog.strojNaziv}</td>
                 <td> {radninalog.racunBroj}</td>
