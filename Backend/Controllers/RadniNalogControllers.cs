@@ -44,7 +44,7 @@ namespace Backend.Controllers
                     .Include(r => r.Potrazitelj)
                     .Include(r => r.Racun)
                     .Where(r => r.Sifra == sifra)
-                    .ToList();
+                    .FirstOrDefault();
                 return Ok(_mapper.Map<RadniNalogDTOInsertUpdate>(rn)); //vraca sve strojeve iz baze
             }
             catch (Exception e)
