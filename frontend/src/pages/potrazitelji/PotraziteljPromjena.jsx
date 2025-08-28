@@ -47,7 +47,7 @@ export default function PotraziteljPromjena(){
 
     return (
         <>
-        Dodavanje potrazitelja
+        Dodavanje potražitelja
         <Form onSubmit={odradiSubmit}>
 
             <Form.Group controlId="naziv">
@@ -88,7 +88,7 @@ export default function PotraziteljPromjena(){
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                        Promjeni potrazitelj
+                        Promjeni potražitelj
                     </Button>
                 </Col>
             </Row>

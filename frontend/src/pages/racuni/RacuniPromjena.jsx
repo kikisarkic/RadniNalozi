@@ -51,7 +51,7 @@ export default function RacuniPromjena(){
 
     return (
         <>
-        Dodavanje racuna
+        Dodavanje računa
         <Form onSubmit={odradiSubmit}>
 
             <Form.Group controlId="iznos">
@@ -60,7 +60,7 @@ export default function RacuniPromjena(){
             </Form.Group>
 
             <Form.Group controlId="nacinPlacanja">
-                <Form.Label>Nacin placanja</Form.Label>
+                <Form.Label>Način plaćanja</Form.Label>
                 <Form.Control type="text" name="nacinPlacanja" required defaultValue={racun.nacinPlacanja} />
             </Form.Group>
 
@@ -77,7 +77,7 @@ export default function RacuniPromjena(){
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                        Promjeni racun
+                        Promjeni račun
                     </Button>
                 </Col>
             </Row>

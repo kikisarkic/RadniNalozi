@@ -34,7 +34,7 @@ export default function RacuniDodaj(){
 
     return (
         <>
-        Dodavanje racuna
+        Dodavanje računa
         <Form onSubmit={odradiSubmit}>
 
             <Form.Group controlId="iznos">
@@ -43,7 +43,7 @@ export default function RacuniDodaj(){
             </Form.Group>
 
             <Form.Group controlId="nacinplacanja">
-                <Form.Label>NacinPlacanja</Form.Label>
+                <Form.Label>Način plaćanja</Form.Label>
                 <Form.Control type="text" name="nacinplacanja" required />
             </Form.Group>
 
@@ -60,7 +60,7 @@ export default function RacuniDodaj(){
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                        Dodaj racun
+                        Dodaj račun
                     </Button>
                 </Col>
             </Row>

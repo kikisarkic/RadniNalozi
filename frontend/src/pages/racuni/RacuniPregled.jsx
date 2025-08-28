@@ -47,7 +47,7 @@ export default function RacuniPregled(){
         <Link 
         
         className="btn btn-success"
-        to={RouteNames.RACUN_NOVI}> Dodavanje novog Racuna</Link>
+        to={RouteNames.RACUN_NOVI}> Dodavanje novog Računa</Link>
         
         
     
@@ -56,7 +56,7 @@ export default function RacuniPregled(){
      <thead>
        <tr>
         <th> Iznos </th>
-        <th> NacinPlacanja </th>
+        <th> Način plaćanja </th>
          <th>Akcija</th>
        </tr>
      </thead>

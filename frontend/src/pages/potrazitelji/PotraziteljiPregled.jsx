@@ -47,7 +47,7 @@ export default function PotraziteljiPregled(){
         <Link 
         
         className="btn btn-success"
-        to={RouteNames.POTRAZITELJ_NOVI}> Dodavanje novog Potrazitelja</Link>
+        to={RouteNames.POTRAZITELJ_NOVI}> Dodavanje novog Potražitelja</Link>
         
         
     

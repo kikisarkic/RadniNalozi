@@ -1,7 +1,6 @@
 import slika from '../assets/visitcard.png'
 
 
-
 export default function Pocetna(){
 
     return( 
@@ -9,7 +8,6 @@ export default function Pocetna(){
 GOLD DIGGER visitcard <hr/>
 
 <img src ={slika} />
-
 
    </>
     

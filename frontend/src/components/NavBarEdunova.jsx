@@ -25,7 +25,7 @@ const navigate=useNavigate()
                 </NavDropdown.Item>
 
                 <NavDropdown.Item onClick={()=>navigate(RouteNames.POTRAZITELJ_PREGLED)}>
-                Potrazitelji
+                Potražitelji
                 </NavDropdown.Item>
 
                 <NavDropdown.Item onClick={()=>navigate(RouteNames.RADNIK_PREGLED)}>
@@ -33,7 +33,7 @@ const navigate=useNavigate()
                 </NavDropdown.Item>
 
                 <NavDropdown.Item onClick={()=>navigate(RouteNames.RACUN_PREGLED)}>
-                Racuni
+                Računi
                 </NavDropdown.Item>
 
                 <NavDropdown.Item onClick={()=>navigate(RouteNames.RADNINALOG_PREGLED)}>

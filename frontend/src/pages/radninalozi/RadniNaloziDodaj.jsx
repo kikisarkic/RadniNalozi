@@ -91,11 +91,11 @@ export default function RadniNaloziDodaj(){
 
     return (
         <>
-        Dodavanje radnognaloga
+        Dodavanje radnog naloga
         <Form onSubmit={odradiSubmit}>
 
             <Form.Group className='mb-3' controlId='potrazitelj'>
-            <Form.Label>Potrazitelj</Form.Label>
+            <Form.Label>Potražitelj</Form.Label>
             <Form.Select 
             onChange={(e)=>{setPotraziteljSifra(e.target.value)}}
             >
@@ -138,7 +138,7 @@ export default function RadniNaloziDodaj(){
 
 
               <Form.Group className='mb-3' controlId='racun'>
-            <Form.Label>Racun</Form.Label>
+            <Form.Label>Račun</Form.Label>
             <Form.Select 
             onChange={(e)=>{setRacunSifra(e.target.value)}}
             >
@@ -164,7 +164,7 @@ export default function RadniNaloziDodaj(){
                 </Col>
                 <Col xs={6} sm={6} md={9} lg={10} xl={6} xxl={6}>
                     <Button variant="success" type="submit">
-                        Dodaj radninalog
+                        Dodaj radni nalog
                     </Button>
                 </Col>
             </Row>

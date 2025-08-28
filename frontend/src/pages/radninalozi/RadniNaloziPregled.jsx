@@ -56,11 +56,11 @@ export default function RadninaloziPregled(){
 
      <thead>
        <tr>
-        <th> potrazitelj </th>
+        <th> potražitelj </th>
         <th> datum </th>
         <th> radnik </th>
         <th> stroj </th>
-        <th> racun </th>
+        <th> račun </th>
          
          <th>Akcija</th>
        </tr>
